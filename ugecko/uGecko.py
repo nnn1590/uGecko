@@ -5,14 +5,12 @@ from .enums.Commands import Commands
 
 from .utils.Errors import *
 from .utils.Memory import Memory
-from .utils.Verification import IP_Verification
 
 class uGecko:
     """Python library for use with TCPGecko. Requires kernel exploit to use."""
 
     def __init__(self, ip: str, port: int = 7331, debug_mode: bool = False) -> None:
         self.__socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
-        if not IP_Verification(ip): raise InvalidIpAddressException("The IP address given is not valid!")
         self.__ip = ip
         self.__port = port
         self.__connected = False
